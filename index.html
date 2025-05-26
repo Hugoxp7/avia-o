@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aeronáutica Brasileira</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <button id="toggle-theme" title="Alternar tema">🌙</button>
+
+  <nav>
+    <ul>
+      <li><button class="tab-btn active" data-tab="inicio">Início</button></li>
+      <li><button class="tab-btn" data-tab="curiosidades">Curiosidades</button></li>
+      <li><button class="tab-btn" data-tab="salarios">Salários</button></li>
+      <li><button class="tab-btn" data-tab="estudos">Formas de Estudo</button></li>
+      <li><button class="tab-btn" data-tab="contato">Contato</button></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="inicio" class="tab-content active fade-in">
+      <header>
+        <h1>Aeronáutica Brasileira</h1>
+        <p>Explore o universo da aviação de caça no Brasil</p>
+        <img src="https://s2-autoesporte.glbimg.com/Df53P65Lwv3x_u0tCoFx-AW8HKQ=/0x0:1400x788/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_cf9d035bf26b4646b105bd958f32089d/internal_photos/bs/2021/H/I/6uDn06QN2oOoHildWQjQ/saa-7.jpg" alt="Caça brasileiro em voo" />
+      </header>
+    </section>
+
+    <section id="curiosidades" class="tab-content fade-in">
+      <h2>Curiosidades sobre a Aeronáutica</h2>
+      <img src="https://revistapesquisa.fapesp.br/wp-content/uploads/2019/08/018-025_CAPA-Gripen_282-5-800px.jpg" alt="Caça Gripen E" />
+      <ul>
+        <li>✈️ O Brasil opera caças de última geração como o Gripen E.</li>
+        <li>🛩️ A Força Aérea Brasileira foi criada em 1941.</li>
+        <li>🇧🇷 O primeiro caça projetado no Brasil foi o AMX A-1.</li>
+        <li>📡 Aviões da FAB são usados para monitoramento da Amazônia.</li>
+        <li>🚀 A FAB também atua no programa espacial brasileiro.</li>
+        <li>🌐 A aviação de caça brasileira participa de missões internacionais.</li>
+        <li>🛰️ Aeronaves podem fazer reabastecimento em pleno voo.</li>
+        <li>🎖️ Os pilotos de caça treinam em simuladores avançados.</li>
+        <li>🌪️ O Gripen atinge velocidades superiores a 2.200 km/h.</li>
+        <li>🧑‍✈️ A formação de um piloto de caça pode levar até 7 anos.</li>
+      </ul>
+    </section>
+
+    <section id="salarios" class="tab-content fade-in">
+      <h2>Salários na Aeronáutica</h2>
+      <img src="https://www.fab.mil.br/sis/enoticias/imagens/pub/48128/i2411610453001408.jpg" alt="Militares em ação" />
+      <ul>
+        <li>💰 O salário inicial de um sargento gira em torno de R$ 4.000.</li>
+        <li>📈 Um tenente aviador pode receber mais de R$ 10.000 mensais.</li>
+        <li>🪂 Pilotos de caça recebem adicionais por voos e perigosidade.</li>
+        <li>🏅 Oficiais têm benefícios como plano de saúde e moradia.</li>
+        <li>🎓 Durante a formação, os alunos já recebem uma bolsa.</li>
+        <li>✈️ Missões internacionais possuem bônus adicionais.</li>
+        <li>🕹️ Treinadores de voo também são bem remunerados.</li>
+        <li>💼 O plano de carreira garante promoções regulares.</li>
+        <li>🌎 Após a carreira militar, muitos atuam na aviação civil.</li>
+        <li>📊 A remuneração é estável e com aumentos programados.</li>
+      </ul>
+    </section>
+
+    <section id="estudos" class="tab-content fade-in">
+      <h2>Formas de Estudo e Ingresso</h2>
+      <img src="https://www.sociedademilitar.com.br/wp-content/uploads/2024/06/Primeiro-caca-brasileiro.jpg" alt="Formação aeronáutica" />
+      <ul>
+        <li>🎓 A Escola Preparatória de Cadetes do Ar (EPCAR) é a porta de entrada para jovens.</li>
+        <li>✈️ A Academia da Força Aérea (AFA) forma pilotos, intendentes e oficiais de infantaria.</li>
+        <li>📚 Existem concursos para sargentos e oficiais especializados.</li>
+        <li>📖 A formação inclui disciplinas como física, meteorologia e navegação.</li>
+        <li>🧑‍🏫 Todos os cursos são gratuitos e com alojamento e alimentação.</li>
+        <li>📡 O ITA é referência em engenharia aeronáutica no Brasil.</li>
+        <li>🛰️ A FAB oferece programas de intercâmbio e especialização no exterior.</li>
+        <li>💼 Após formado, o militar já começa a atuar na força.</li>
+        <li>🏫 Existem escolas cívico-militares que orientam desde o ensino médio.</li>
+        <li>🕹️ Simuladores de voo são usados desde o início da formação.</li>
+      </ul>
+    </section>
+
+    <section id="contato" class="tab-content fade-in">
+      <h2>Contato</h2>
+      <p>📞 Telefone: (41) 99708-8269</p>
+      <p>📧 E-mail: astrovictor59@gmail.com</p>
+      <p>📸 Instagram: <a href="https://instagram.com/hugozxp7" target="_blank" rel="noopener noreferrer">@hugozxp7</a></p>
+      <p class="assinatura">Feito com ✈️ por Victor Hugo — 2025 <br> Para a professora Isabela Haddad</p>
+    </section>
+  </main>
+
+  <script>
+    // Tema claro/escuro
+    const toggleBtn = document.getElementById('toggle-theme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    // Navegação por abas com transição suave e scroll animado
+    const tabs = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Remove active de todas abas
+        tabs.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(content => content.classList.remove('active'));
+
+        // Ativa a aba clicada e conteúdo
+        tab.classList.add('active');
+        const tabId = tab.getAttribute('data-tab');
+        const activeContent = document.getElementById(tabId);
+        activeContent.classList.add('active');
+
+        // Scroll suave até o conteúdo
+        activeContent.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
