@@ -8,20 +8,21 @@
 </head>
 <body>
 
-  <button id="toggle-theme" title="Alternar tema">🌙</button>
+  <!-- Botão tema mais visível no topo direito -->
+  <button id="toggle-theme" title="Alternar tema" aria-label="Alternar tema">🌙</button>
 
   <nav>
     <ul>
-      <li><button class="tab-btn active" data-tab="inicio">Início</button></li>
-      <li><button class="tab-btn" data-tab="curiosidades">Curiosidades</button></li>
-      <li><button class="tab-btn" data-tab="salarios">Salários</button></li>
-      <li><button class="tab-btn" data-tab="estudos">Formas de Estudo</button></li>
-      <li><button class="tab-btn" data-tab="contato">Contato</button></li>
+      <li><button class="tab-btn active" data-tab="inicio" aria-controls="inicio" aria-selected="true" role="tab">Início</button></li>
+      <li><button class="tab-btn" data-tab="curiosidades" aria-controls="curiosidades" aria-selected="false" role="tab">Curiosidades</button></li>
+      <li><button class="tab-btn" data-tab="salarios" aria-controls="salarios" aria-selected="false" role="tab">Salários</button></li>
+      <li><button class="tab-btn" data-tab="estudos" aria-controls="estudos" aria-selected="false" role="tab">Formas de Estudo</button></li>
+      <li><button class="tab-btn" data-tab="contato" aria-controls="contato" aria-selected="false" role="tab">Contato</button></li>
     </ul>
   </nav>
 
   <main>
-    <section id="inicio" class="tab-content active fade-in">
+    <section id="inicio" class="tab-content active" role="tabpanel" tabindex="0">
       <header>
         <h1>Aeronáutica Brasileira</h1>
         <p>Explore o universo da aviação de caça no Brasil</p>
@@ -29,7 +30,7 @@
       </header>
     </section>
 
-    <section id="curiosidades" class="tab-content fade-in">
+    <section id="curiosidades" class="tab-content" role="tabpanel" tabindex="0" hidden>
       <h2>Curiosidades sobre a Aeronáutica</h2>
       <img src="https://revistapesquisa.fapesp.br/wp-content/uploads/2019/08/018-025_CAPA-Gripen_282-5-800px.jpg" alt="Caça Gripen E" />
       <ul>
@@ -46,7 +47,7 @@
       </ul>
     </section>
 
-    <section id="salarios" class="tab-content fade-in">
+    <section id="salarios" class="tab-content" role="tabpanel" tabindex="0" hidden>
       <h2>Salários na Aeronáutica</h2>
       <img src="https://www.fab.mil.br/sis/enoticias/imagens/pub/48128/i2411610453001408.jpg" alt="Militares em ação" />
       <ul>
@@ -63,7 +64,7 @@
       </ul>
     </section>
 
-    <section id="estudos" class="tab-content fade-in">
+    <section id="estudos" class="tab-content" role="tabpanel" tabindex="0" hidden>
       <h2>Formas de Estudo e Ingresso</h2>
       <img src="https://www.sociedademilitar.com.br/wp-content/uploads/2024/06/Primeiro-caca-brasileiro.jpg" alt="Formação aeronáutica" />
       <ul>
@@ -80,41 +81,45 @@
       </ul>
     </section>
 
-    <section id="contato" class="tab-content fade-in">
+    <section id="contato" class="tab-content" role="tabpanel" tabindex="0" hidden>
       <h2>Contato</h2>
       <p>📞 Telefone: (41) 99708-8269</p>
       <p>📧 E-mail: astrovictor59@gmail.com</p>
       <p>📸 Instagram: <a href="https://instagram.com/hugozxp7" target="_blank" rel="noopener noreferrer">@hugozxp7</a></p>
-      <p class="assinatura">Feito com ✈️ por Victor Hugo — 2025 <br> Para a professora Isabela Haddad</p>
+      <p class="assinatura">Feito por Victor Hugo</p>
     </section>
   </main>
 
   <script>
-    // Tema claro/escuro
     const toggleBtn = document.getElementById('toggle-theme');
     toggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark');
       toggleBtn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
 
-    // Navegação por abas com transição suave e scroll animado
     const tabs = document.querySelectorAll('.tab-btn');
     const contents = document.querySelectorAll('.tab-content');
 
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
-        // Remove active de todas abas
-        tabs.forEach(btn => btn.classList.remove('active'));
-        contents.forEach(content => content.classList.remove('active'));
+        // Remove active e aria-selected
+        tabs.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-selected', 'false');
+        });
+        contents.forEach(content => {
+          content.hidden = true;
+          content.classList.remove('active');
+        });
 
-        // Ativa a aba clicada e conteúdo
+        // Ativa aba clicada
         tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
         const tabId = tab.getAttribute('data-tab');
         const activeContent = document.getElementById(tabId);
+        activeContent.hidden = false;
         activeContent.classList.add('active');
-
-        // Scroll suave até o conteúdo
-        activeContent.scrollIntoView({ behavior: 'smooth' });
+        activeContent.focus();
       });
     });
   </script>
